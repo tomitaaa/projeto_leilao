@@ -17,7 +17,10 @@ public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank(message = "{validation.name.notblank}")
     private String nome;
+    @NotBlank(message = "{validation.email.notblank}")
+    @Email(message = "{validation.email.notvalid}")
     private String email;
     private String senha;
 }
