@@ -1,7 +1,12 @@
-package com.leilao.backend.service;
+package com.github.tomitaaa.backend.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.leilao.backend.repository.PessoaRepository;
+
+import com.github.tomitaaa.backend.model.Pessoa;
+import com.github.tomitaaa.backend.repository.PessoaRepository;
 
 @Service
 public class PessoaService{
@@ -13,8 +18,7 @@ public class PessoaService{
     }
     public Pessoa alterar(Pessoa pessoa) {
        //return pessoaRepository.save(pessoa);
-       Pessoa pessoaBanco = pessoaRepository.findById(pessoa.getId()
-       .orElseThrow(() -> new NoSuchElementException(messageSource.getMessage
+       Pessoa pessoaBanco = pessoaRepository.findById(pessoa.getId().orElseThrow(() -> new NoSuchElementException(messageSource.getMessage
        ("pessoa.notfound", new Object[]{pessoa.getId()},LocaleContextHolder.getLocale()))));
         pessoaBanco.setNome(pessoa.getNome());
         pessoaBanco.setEmail(pessoa.getEmail());

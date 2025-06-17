@@ -1,5 +1,5 @@
-package com.leilao.backend.repository;
-import com.leilao.backend.model.Pessoa;
+package com.github.tomitaaa.backend.repository;
+import com.github.tomitaaa.backend.model.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
