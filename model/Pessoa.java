@@ -24,5 +24,18 @@ public class Pessoa {
     @NotBlank(message = "{validation.email.notblank}")
     @Email(message = "{validation.email.notvalid}")
     private String email;
+    @JsonIgnore
     private String senha;
+
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true, FETCH = FetchType.EAGER)
+    @Setter(value = AcessLevel.NONE)
+    private List<PessoaPerfil> pessoaPerfil;
+
+    public void setPessoaPerfil(List<PessoaPerfil> pessoaPerfil){
+        for (PessoaPerfil p : pessoaPerfil) {
+            p.setPessoa(this);
+        }
+        this.pessoaPerfil = pessoaPerfil;
+    }
+
 }
